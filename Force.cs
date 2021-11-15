@@ -12,6 +12,11 @@ namespace Physics
         {
             Console.WriteLine("select force type");
             string ForceType = Console.ReadLine();
+            // newton 1
+            // newton 2
+            // newton 3
+            // newton g
+            // friktion
         }
     }
 }
