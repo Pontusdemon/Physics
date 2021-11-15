@@ -10,7 +10,8 @@ namespace Physics
     {
         public void SelectForce()
         {
-
+            Console.WriteLine("select force type");
+            string ForceType = Console.ReadLine();
         }
     }
 }
