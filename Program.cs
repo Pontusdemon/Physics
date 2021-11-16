@@ -25,8 +25,8 @@ namespace Physics
             }
             else if (Subject == "force")
             {
-                var GetForce = new Force();
-                GetForce.SelectForce();
+                var GetForceSelector = new ForceSelector();
+                GetForceSelector.SelectForce();
             }
         }
     }
