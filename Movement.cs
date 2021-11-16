@@ -8,32 +8,29 @@ namespace Physics
 {
     public abstract class Movement
     {
-        public abstract void Move();
         public class Velocity : Movement
         {
             public double s;
             public double v;
             public double t;
 
-            public override void Move()
-            {
-                throw new NotImplementedException();
-            }
-
             public void svtDistance()
             {
+                Console.WriteLine("s = v * t");
                 s = v * t;
                 Console.WriteLine("distance = " + s);
             }
 
             public void svtVelocity()
             {
+                Console.WriteLine("v = s / t");
                 v = s / t;
                 Console.WriteLine("velocity = " + v);
             }
 
             public void svtTime()
             {
+                Console.WriteLine("t = s / v");
                 t = s / v;
                 Console.WriteLine("time = " + t);
             }
@@ -46,31 +43,30 @@ namespace Physics
             public double a;
             public double t;
 
-            public override void Move()
-            {
-                throw new NotImplementedException();
-            }
-
             public void avtFinal()
             {
+                Console.WriteLine("v = x + at");
                 v = x + (a * t);
                 Console.WriteLine("final velocity = " + v);
             }
 
             public void avtInitial()
             {
+                Console.WriteLine("x = v - at");
                 x = v - (a * t);
                 Console.WriteLine("initial velocity = " + x);
             }
 
             public void avtAceleration()
             {
+                Console.WriteLine("a = ( v - x ) / t");
                 a = (v - x) / t;
-                Console.WriteLine("aceleration = " + a);
+                Console.WriteLine("acleration = " + a);
             }
 
             public void avtTime()
             {
+                Console.WriteLine("t = ( v - x ) / a");
                 t = (v - x) / a;
                 Console.WriteLine("time = " + t);
             }
@@ -82,11 +78,6 @@ namespace Physics
             public double x;
             public double a;
             public double s;
-
-            public override void Move()
-            {
-                throw new NotImplementedException();
-            }
 
             public void asFinal()
             {
@@ -118,11 +109,6 @@ namespace Physics
             public double u;
             public double t;
             public double a;
-
-            public override void Move()
-            {
-                throw new NotImplementedException();
-            }
 
             public void at2Distance()
             {
@@ -157,11 +143,6 @@ namespace Physics
             public double v;
             public double t;
             public double s;
-
-            public override void Move()
-            {
-
-            }
             
             public void FallDistance() // option1
             {

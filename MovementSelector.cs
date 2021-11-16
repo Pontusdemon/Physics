@@ -50,11 +50,6 @@ namespace Physics
 
                     GetVelocity.svtTime();
                 }
-
-                else
-                {
-                    GetVelocity.Move();
-                }
             }
 
             else if (MovementType == "aceleration")
@@ -116,11 +111,6 @@ namespace Physics
                     GetAceleration.a = Convert.ToDouble(Console.ReadLine());
 
                     GetAceleration.avtTime();
-                }
-
-                else
-                {
-                    GetAceleration.Move();
                 }
             }
 
@@ -184,11 +174,6 @@ namespace Physics
 
                     GetTimeless.asDistance();
                 }
-                
-                else
-                {
-                    GetTimeless.Move();
-                }
             }
 
             else if (MovementType == "distance")
@@ -251,11 +236,6 @@ namespace Physics
                     GetDistance.t = Convert.ToDouble(Console.ReadLine());
 
                     GetDistance.at2Aceleration();
-                }
-
-                else
-                {
-                    GetDistance.Move();
                 }
             }
 

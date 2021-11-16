@@ -10,38 +10,24 @@ namespace Physics
     {
         public class Inertia : Force
         {
+            public double Net;
             public double F1;
             public double F2;
-            public double Net;
 
             public double dv;
             public double dt;
             public double ds;
 
+            public double x = 0;
+
             public void InertiaNet()
             {
                 Net = F1 + F2;
+                Console.WriteLine("inertia = " + Net);
                 if (Net == 0)
                 {
-                    Console.WriteLine("ther is no changes in the inertia");
 
                 }
-                else
-                {
-                    Console.WriteLine("inertia = " + Net);
-                }
-            }
-            public void InertiaF1()
-            {
-                Console.WriteLine("F1 = " + F1);
-            }
-            public void InertiaF2()
-            {
-                Console.WriteLine("F2 = " + F2);
-            }
-            public void InertiaMovement()
-            {
-
             }
         }
     }
