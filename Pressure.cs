@@ -17,14 +17,16 @@ namespace Physics
 
             public override void Tryck()
             {
+                Console.WriteLine("p = F / A");
                 p = F / A;
-                Console.WriteLine("pessure = " + p);
+                Console.WriteLine("pressure = " + p);
             }
 
             public void DefinedPressureForce()
             {
+                Console.WriteLine("F = pA");
                 F = p * A;
-                Console.WriteLine("force = " + F);
+                Console.WriteLine("pressure force = " + F);
             }
 
             public void DefinedPressureArea()
