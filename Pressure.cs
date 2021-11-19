@@ -31,8 +31,9 @@ namespace Physics
 
             public void DefinedPressureArea()
             {
+                Console.WriteLine("A = F / p");
                 A = F / p;
-                Console.WriteLine("area = " + A);
+                Console.WriteLine("pressure area = " + A);
             }
         }
         public class Fluid : Pressure
@@ -45,7 +46,7 @@ namespace Physics
 
             public override void Tryck()
             {
-
+                
             }
 
             public void FluidPressure()
