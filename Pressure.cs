@@ -18,6 +18,7 @@ namespace Physics
             public override void Tryck()
             {
                 Console.WriteLine("p = F / A");
+
                 p = F / A;
                 Console.WriteLine("pressure = " + p);
             }
@@ -25,6 +26,7 @@ namespace Physics
             public void DefinedPressureForce()
             {
                 Console.WriteLine("F = pA");
+
                 F = p * A;
                 Console.WriteLine("pressure force = " + F);
             }
@@ -32,6 +34,7 @@ namespace Physics
             public void DefinedPressureArea()
             {
                 Console.WriteLine("A = F / p");
+
                 A = F / p;
                 Console.WriteLine("pressure area = " + A);
             }
@@ -46,37 +49,42 @@ namespace Physics
 
             public override void Tryck()
             {
-                
-            }
+                Console.WriteLine("p = x + dgh");
 
-            public void FluidPressure()
-            {
                 p = x + (d * g * h);
                 Console.WriteLine("fluid pressure = " + p);
             }
 
             public void ExternalPressure()
             {
-                x = p - (d * g * h);
+                Console.WriteLine("x = p - dgh");
+
+                x = p - (d * g * g);
                 Console.WriteLine("external pressure = " + x);
             }
 
             public void FluidDensity()
             {
+                Console.WriteLine("d = (p - x) / gh");
+
                 d = (p - x) / (g * h);
                 Console.WriteLine("fluid density = " + d);
             }
 
             public void FluidAcelerationForce()
             {
+                Console.WriteLine("g = (p - x) / dh");
+
                 g = (p - x) / (d * h);
-                Console.WriteLine("aceleration g = " + g);
+                Console.WriteLine("aceleration = " + g);
             }
 
             public void FluidDeep()
             {
+                Console.WriteLine("h = (p - x) / dg");
+
                 h = (p - x) / (d * g);
-                Console.WriteLine("fluid deaph =" + h);
+                Console.WriteLine("depth = " + h);
             }
         }
         public class Arkimedes : Pressure

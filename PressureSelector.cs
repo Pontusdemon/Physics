@@ -70,7 +70,7 @@ namespace Physics
                     Console.WriteLine("enter fluid deep");
                     GetFluidPressure.h = Convert.ToDouble(Console.ReadLine());
 
-                    GetFluidPressure.FluidPressure();
+                    GetFluidPressure.Tryck();
                 }
 
                 else if (FluidVar == "x")
