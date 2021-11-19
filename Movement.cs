@@ -163,57 +163,5 @@ namespace Physics
                 Console.WriteLine("aceleration = " + a);
             }
         }
-
-        public class FreeFall : Movement ///////////////
-        {
-            public double g;
-            public double v;
-            public double t;
-            public double s;
-            
-            public void FallDistance() // option1
-            {
-                s = (v * t) + ((g * Math.Pow(t, 2)) / 2);
-                Console.WriteLine("falldistance = " + s);
-            }
-            
-            public void FallVelocity() //option1
-            {
-                v = s / t - ((g * t) / 2);
-                Console.WriteLine("initial velocity = " + v);
-            }
-
-            public void FreeFallVelocity()
-            {
-                v = g * t;
-                Console.WriteLine("velocity = " + v);
-            }
-
-            public void FallTime() // option1
-            {
-                double t1 = (-v + Math.Sqrt(Math.Pow(v, 2) + 2 * g * s)) / g;
-                Console.WriteLine("time 1 = " + t1);
-                double t2 = (-v - Math.Sqrt(Math.Pow(v, 2) + 2 * g * s)) / g;
-                Console.WriteLine("time 2 = " + t2);
-            }
-
-            public void FreeFallTime()
-            {
-                t = v / g;
-                Console.WriteLine("time = " + t);
-            }
-
-            public void FallAceleration() // option1
-            {
-                g = (2 * (s - (v * t))) / Math.Pow(t, 2);
-                Console.WriteLine("fall aceleration = " + g);
-            }
-
-            public void FreeFallAceleration()
-            {
-                g = v / t;
-                Console.WriteLine("aceleration = " + g);
-            }
-        }
     }
 }
