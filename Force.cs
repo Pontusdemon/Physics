@@ -17,6 +17,11 @@ namespace Physics
             public void InertiaNet()
             {
                 Net = F1 + F2;
+
+                if (Net == 0)
+                {
+                    Console.WriteLine("there is no change in inertia");
+                }
             }
         }
     }
