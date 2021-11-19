@@ -14,48 +14,64 @@ namespace Physics
 
         public void DensitySelector()
         {
+            var GetCalculation = new Density();
             Console.WriteLine("select variable");
             var SelectVar = Console.ReadLine();
-            var GetCalculation = new Density();
+
             if (SelectVar=="d")
             {
                 GetCalculation.CalculateDensity();
             }
+
             else if (SelectVar=="m")
             {
                 GetCalculation.CalculateDensityMass();   
             }
+
             else if (SelectVar=="V")
             {
                 GetCalculation.CalculateDensityVolume();
             }
         }
 
-        //d = m / V
         public void CalculateDensity()
         {
             Console.WriteLine("enter mass");
             m = Convert.ToDouble(Console.ReadLine());
+
             Console.WriteLine("enter volume");
             V = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("d = m / V");
+
             d = m / V;
             Console.WriteLine("density = " + d);
         }
+
         public void CalculateDensityMass()
         {
             Console.WriteLine("enter density");
             d = Convert.ToDouble(Console.ReadLine());
+
             Console.WriteLine("enter volume");
             V = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("m = dV");
+
             m = d * V;
             Console.WriteLine("mass = " + m);
         }
+
         public void CalculateDensityVolume()
         {
-            Console.WriteLine("enter density");
-            d = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("enter mass");
             m = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("enter density");
+            d = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("V = m / d");
+
             V = m / d;
             Console.WriteLine("volume = " + V);
         }
