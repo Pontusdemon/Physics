@@ -157,7 +157,7 @@ namespace Physics
 
             public void at2Aceleration()
             {
-                Console.WriteLine("a = 2(s - ut/ t^2");
+                Console.WriteLine("a = 2(s - ut) / t^2");
 
                 a = (2 * (s - (u * t))) / Math.Pow(t, 2);
                 Console.WriteLine("aceleration = " + a);
