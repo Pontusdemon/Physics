@@ -212,14 +212,14 @@ namespace Physics
 
                 else if (DistanceVar == "t")
                 {
-                    Console.WriteLine("enter distance");
-                    GetDistance.s = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter initial velocity");
+                    Console.WriteLine("enter velocity");
                     GetDistance.u = double.TryParse(Console.ReadLine(), out double u) ? u : 0;
 
                     Console.WriteLine("enter aceleration");
                     GetDistance.a = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter distance");
+                    GetDistance.s = Convert.ToDouble(Console.ReadLine());
 
                     GetDistance.at2Time();
                 }
