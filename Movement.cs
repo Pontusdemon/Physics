@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Physics
 {
     public abstract class Movement
+
+        // change suggestion, change to calculate for specific topic say aceleration or something based on variables
     {
         public class Velocity : Movement
         {

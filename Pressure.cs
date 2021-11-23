@@ -39,7 +39,7 @@ namespace Physics
                 Console.WriteLine("pressure area = " + A);
             }
         }
-        public class Fluid : Pressure
+        public class Fluid : Pressure  ///
         {
             public double p;
             public double x;
