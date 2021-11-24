@@ -32,7 +32,7 @@ namespace Physics
                 }
                 
                 else if (AverageVelocityCalculation == "aceleration")
-                // v = at
+                // v = a * t
                 {
                     Console.WriteLine("enter aceleration");
                     AverageVelocity.a = Convert.ToDouble(Console.ReadLine());
@@ -60,6 +60,25 @@ namespace Physics
             {
                 Console.WriteLine("select calculation for final velocity");
                 string FinalVelocityCalculation = Console.ReadLine();
+                var FinalVelocity = new Movement.Velocity.Final();
+
+                if (FinalVelocityCalculation == "svt")
+                // v = x + s / t
+                {
+                    
+                }
+
+                else if (FinalVelocityCalculation == "general")
+                // v = x + at
+                {
+
+                }
+
+                else if (FinalVelocityCalculation == "2as")
+                // v^2 = x^2 + 2as
+                {
+
+                }
             }
 
             else if (MovementType == "initial velocity")

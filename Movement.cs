@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 namespace Physics
 {
     public abstract class Movement
-
-        // change suggestion, change to calculate for specific topic say aceleration or something based on variables
     {
         public class Velocity : Movement
         {
@@ -40,6 +38,16 @@ namespace Physics
                     vm = (x + v) / 2;
                     Console.WriteLine("average velocity = " + vm);
                 }
+            }
+
+            public class Final : Velocity
+            {
+                public double v;
+                public double x;
+                public double a;
+                public double t;
+                public double s;
+                public double vm;
             }
         }
         /*public class Velocity : Movement
