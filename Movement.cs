@@ -12,6 +12,38 @@ namespace Physics
     {
         public class Velocity : Movement
         {
+            public class Average : Velocity
+            {
+                public double v;
+                public double s;
+                public double t;
+                public double a;
+                public double vm;
+                public double x;
+
+                public void svtAverageVelocity()
+                {
+                    v = s / t;
+                    Console.WriteLine("average velocity = " + v);
+                }
+
+                public void AverageVelcoityAceleration()
+                {
+                    v = a * t;
+                    Console.WriteLine("average velocity");
+                }
+
+                public void AverageVelocity_m()
+                {
+                    Console.WriteLine("vm = (x + v) / 2");
+
+                    vm = (x + v) / 2;
+                    Console.WriteLine("average velocity = " + vm);
+                }
+            }
+        }
+        /*public class Velocity : Movement
+        {
             public double s;
             public double v;
             public double t;
@@ -39,7 +71,7 @@ namespace Physics
                 t = s / v;
                 Console.WriteLine("time = " + t);
             }
-        }
+        }*/
 
         public class Aceleration : Movement 
         {

@@ -13,230 +13,86 @@ namespace Physics
             Console.WriteLine("select movement type");
             string MovementType = Console.ReadLine();
 
-            if (MovementType == "velocity")
+            if (MovementType == "average velocity")
             {
-                var GetVelocity = new Movement.Velocity();
-                Console.WriteLine("select var");
-                string VelocityVar = Console.ReadLine();
-                if (VelocityVar == "s")
+                Console.WriteLine("select calculation");
+                string AverageVelocityCalculation = Console.ReadLine();
+                var AverageVelocity = new Movement.Velocity.Average();
+
+                if (AverageVelocityCalculation == "general")
+                // v = s / t
                 {
-                    Console.WriteLine("enter velocity");
-                    GetVelocity.v = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("enter distance");
+                    AverageVelocity.s = Convert.ToDouble(Console.ReadLine());
 
                     Console.WriteLine("enter time");
-                    GetVelocity.t = Convert.ToDouble(Console.ReadLine());
+                    AverageVelocity.t = Convert.ToDouble(Console.ReadLine());
 
-                    GetVelocity.svtDistance();
+                    AverageVelocity.svtAverageVelocity();
                 }
                 
-                else if (VelocityVar == "v")
+                else if (AverageVelocityCalculation == "aceleration")
+                // v = at
                 {
-                    Console.WriteLine("enter distance");
-                    GetVelocity.s = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("enter aceleration");
+                    AverageVelocity.a = Convert.ToDouble(Console.ReadLine());
 
                     Console.WriteLine("enter time");
-                    GetVelocity.t = Convert.ToDouble(Console.ReadLine());
+                    AverageVelocity.t = Convert.ToDouble(Console.ReadLine());
 
-                    GetVelocity.svtVelocity();
+                    AverageVelocity.AverageVelcoityAceleration();
                 }
-
-                else if (VelocityVar == "t")
+                
+                else if (AverageVelocityCalculation == "vm")
+                // vm = (x + v)
                 {
-                    Console.WriteLine("enter distance");
-                    GetVelocity.s = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("enter initial velocity");
+                    AverageVelocity.x = Convert.ToDouble(Console.ReadLine());
 
-                    Console.WriteLine("enter velocity");
-                    GetVelocity.v = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("enter final velocity");
+                    AverageVelocity.v = Convert.ToDouble(Console.ReadLine());
 
-                    GetVelocity.svtTime();
+                    AverageVelocity.AverageVelocity_m();
                 }
+            }
+
+            else if (MovementType == "final velocity")
+            {
+                Console.WriteLine("select calculation for final velocity");
+                string FinalVelocityCalculation = Console.ReadLine();
+            }
+
+            else if (MovementType == "initial velocity")
+            {
+                Console.WriteLine("select calculation for initial velocity");
+                string InitialVelocityCalculation = Console.ReadLine();
             }
 
             else if (MovementType == "aceleration")
             {
-                var GetAceleration = new Movement.Aceleration();
-                Console.WriteLine("select var");
-                string AcelerationVar = Console.ReadLine();
-                if (AcelerationVar == "v")
-                {
-                    Console.WriteLine("enter initial velocity");
-                    GetAceleration.x = double.TryParse(Console.ReadLine(), out double x) ? x : 0;
-
-                    Console.WriteLine("enter aceleration");
-                    GetAceleration.a = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter time");
-                    GetAceleration.t = Convert.ToDouble(Console.ReadLine());
-
-                    GetAceleration.avtFinal();
-                }
-
-                else if (AcelerationVar == "x")
-                {
-                    Console.WriteLine("enter final velocity");
-                    GetAceleration.v = double.TryParse(Console.ReadLine(), out double v) ? v : 0;
-
-                    Console.WriteLine("enter aceleration");
-                    GetAceleration.a = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter time");
-                    GetAceleration.t = Convert.ToDouble(Console.ReadLine());
-
-                    GetAceleration.avtInitial();
-                }
-
-                else if (AcelerationVar == "a")
-                {
-                    Console.WriteLine("enter final velocity");
-                    GetAceleration.v = double.TryParse(Console.ReadLine(), out double v) ? v : 0;
-
-                    Console.WriteLine("enter initial velocity");
-                    GetAceleration.x = double.TryParse(Console.ReadLine(), out double x) ? x : 0;
-
-                    Console.WriteLine("enter time");
-                    GetAceleration.t = Convert.ToDouble(Console.ReadLine());
-
-                    GetAceleration.avtAceleration();
-                }
-
-                else if (AcelerationVar == "t")
-                {
-                    Console.WriteLine("enter final velocity");
-                    GetAceleration.v = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter initial velocity");
-                    GetAceleration.x = double.TryParse(Console.ReadLine(), out double x) ? x : 0;
-
-                    Console.WriteLine("enter aceleration");
-                    GetAceleration.a = Convert.ToDouble(Console.ReadLine());
-
-                    GetAceleration.avtTime();
-                }
-            }
-
-            else if (MovementType == "timeless")
-            {
-                var GetTimeless = new Movement.Timeless();
-                Console.WriteLine("select var");
-                string TimelessVar = Console.ReadLine();
-                if (TimelessVar == "v")
-                {
-                    Console.WriteLine("enter initial velocity");
-                    GetTimeless.x = double.TryParse(Console.ReadLine(), out double x) ? x : 0;
-
-                    Console.WriteLine("enter aceleration");
-                    GetTimeless.a=Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter distance");
-                    GetTimeless.s = Convert.ToDouble(Console.ReadLine());
-
-                    GetTimeless.asFinal();
-                }
-
-                else if (TimelessVar == "x")
-                {
-                    Console.WriteLine("enter final velocity");
-                    GetTimeless.v = double.TryParse(Console.ReadLine(), out double v) ? v : 0;
-
-                    Console.WriteLine("enter aceleration");
-                    GetTimeless.a = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter distance");
-                    GetTimeless.s = Convert.ToDouble(Console.ReadLine());
-
-                    GetTimeless.asInitial();
-                }
-
-                else if (TimelessVar == "a")
-                {
-                    Console.WriteLine("enter final velocity");
-                    GetTimeless.v = double.TryParse(Console.ReadLine(), out double v) ? v : 0;
-
-                    Console.WriteLine("enter initial velocity");
-                    GetTimeless.x = double.TryParse(Console.ReadLine(), out double x) ? x : 0;
-
-                    Console.WriteLine("enter distance");
-                    GetTimeless.s = Convert.ToDouble(Console.ReadLine());
-
-                    GetTimeless.asAceleration();
-                }
-
-                else if (TimelessVar == "s")
-                {
-                    Console.WriteLine("enter final velocity");
-                    GetTimeless.v = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter initial velocity");
-                    GetTimeless.x = double.TryParse(Console.ReadLine(), out double x) ? x : 0;
-
-                    Console.WriteLine("enter aceleration");
-                    GetTimeless.a = Convert.ToDouble(Console.ReadLine());
-
-                    GetTimeless.asDistance();
-                }
+                Console.WriteLine("select how to calculate aceleration");
+                string AcelerationCalculation = Console.ReadLine();
+                // a = (v - x) / t
+                // a = (v^2 - x^2) / 2s
+                // a = 2(s - ut) / t^2
             }
 
             else if (MovementType == "distance")
             {
-                var GetDistance = new Movement.Distance();
-                Console.WriteLine("select var");
-                string DistanceVar = Console.ReadLine();
+                Console.WriteLine("select distance calculation");
+                string DistanceCalculation = Console.ReadLine();
+                // s = vt
+                // s = (v^2 - x^2) / 2a
+                // s = ut + (at^2) / 2s
+            }
 
-                if (DistanceVar == "s")
-                {
-                    Console.WriteLine("enter initial velocity");
-                    GetDistance.u = double.TryParse(Console.ReadLine(), out double u) ? u : 0;
-
-                    Console.WriteLine("enter time");
-                    GetDistance.t = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter aceleration");
-                    GetDistance.a = Convert.ToDouble(Console.ReadLine());
-
-                    GetDistance.at2Distance();
-                }
-
-                else if (DistanceVar == "v")
-                {
-                    Console.WriteLine("enter distance");
-                    GetDistance.s = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter time");
-                    GetDistance.t = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter aceleration");
-                    GetDistance.a = Convert.ToDouble(Console.ReadLine());
-
-                    GetDistance.at2Velocity();
-                }
-
-                else if (DistanceVar == "t")
-                {
-                    Console.WriteLine("enter velocity");
-                    GetDistance.u = double.TryParse(Console.ReadLine(), out double u) ? u : 0;
-
-                    Console.WriteLine("enter aceleration");
-                    GetDistance.a = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter distance");
-                    GetDistance.s = Convert.ToDouble(Console.ReadLine());
-
-                    GetDistance.at2Time();
-                }
-
-                else if (DistanceVar == "aceleration") 
-                {
-                    Console.WriteLine("enter distance");
-                    GetDistance.s = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter initial velocity");
-                    GetDistance.u = double.TryParse(Console.ReadLine(), out double u) ? u : 0;
-
-                    Console.WriteLine("enter time");
-                    GetDistance.t = Convert.ToDouble(Console.ReadLine());
-
-                    GetDistance.at2Aceleration();
-                }
+            else if (MovementType == "time")
+            {
+                Console.WriteLine("select hoe to calculate movement time");
+                string TimeCalculation = Console.ReadLine();
+                // t = s / v
+                // t = v / a
+                // t = (-u + (2as + u^2)^0.5) / a
             }
         }
     }
