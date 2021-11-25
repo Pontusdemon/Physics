@@ -48,6 +48,67 @@ namespace Physics
                 public double t;
                 public double s;
                 public double vm;
+
+                public void svtFinalVelocity()
+                {
+                    Console.WriteLine("v = x + s / t");
+
+                    v = x + (s / t);
+                    Console.WriteLine("final velocity = " + v);
+                }
+
+                public void GeneralFinalVelocity()
+                {
+                    Console.WriteLine("v = x + at");
+
+                    v = x + (a * t);
+                    Console.WriteLine("final velocity = " + v);
+                }
+
+                public void FinalVelocity2as()
+                {
+                    Console.WriteLine("v=(x^2 + 2as)^0.5");
+
+                    v = Math.Sqrt(Math.Pow(x, 2) + (2 * a * s));
+                    Console.WriteLine("final velocity = " + v);
+                }
+
+                public void FinalVelocityv_m()/////
+                {
+                    Console.WriteLine("v = vm - 2x");
+
+                    v = vm - (2 * x);
+                    Console.WriteLine("final velocity = " + v);
+                }
+            }
+
+            public class Initial : Velocity
+            {
+                public double x;
+                public double v;
+                public double s;
+                public double t;
+                public double a;
+                public double u;
+                public double vm;
+
+                public void svtInitialVelocity()
+                {
+                    Console.WriteLine("x = v - s / t");
+
+                    x = v - (s / t);
+                    Console.WriteLine("initial velocity = " + x);
+                }
+
+                public void AcelerationInitialVelocity()
+                {
+
+                }
+
+                public void TimelessInitialVelocity()
+                {
+
+                }
             }
         }
         /*public class Velocity : Movement
