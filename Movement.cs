@@ -10,6 +10,7 @@ namespace Physics
     {
         public class Velocity : Movement
         {
+
             public class Average : Velocity
             {
                 public double v;
@@ -19,7 +20,7 @@ namespace Physics
                 public double vm;
                 public double x;
 
-                public void svtAverageVelocity()
+                public void AverageVelocity_svt()
                 {
                     v = s / t;
                     Console.WriteLine("average velocity = " + v);
@@ -40,6 +41,7 @@ namespace Physics
                 }
             }
 
+
             public class Final : Velocity
             {
                 public double v;
@@ -48,6 +50,7 @@ namespace Physics
                 public double t;
                 public double s;
                 public double vm;
+                public double u;
 
                 public void svtFinalVelocity()
                 {
@@ -60,6 +63,11 @@ namespace Physics
                 public void GeneralFinalVelocity()
                 {
                     Console.WriteLine("v = x + at");
+
+                    if (u > 0)
+                    {
+                        x = u;
+                    }
 
                     v = x + (a * t);
                     Console.WriteLine("final velocity = " + v);
@@ -82,6 +90,7 @@ namespace Physics
                 }
             }
 
+
             public class Initial : Velocity
             {
                 public double x;
@@ -102,12 +111,34 @@ namespace Physics
 
                 public void AcelerationInitialVelocity()
                 {
+                    Console.WriteLine("x = v - at");
 
+                    x = v - (a * t);
+                    Console.WriteLine("initial velocity = " + x);
                 }
 
                 public void TimelessInitialVelocity()
                 {
+                    Console.WriteLine("x = (v^^2 - 2as)^0.5");
 
+                    x = Math.Sqrt(Math.Pow(v, 2) - (2 * a * s));
+                    Console.WriteLine("initial velocity = " + x);
+                }
+
+                public void InitialVelocity_at2()
+                {
+                    Console.WriteLine("u = s / t - at / 2");
+
+                    u = (s / t) - ((a * t) / 2);
+                    Console.WriteLine("initial velocity = " + u);
+                }
+
+                public void InitialVelocity_vm()/////
+                {
+                    Console.WriteLine("x = Vm - 2v");
+
+                    x = vm - (2 * v);
+                    Console.WriteLine("initial velocity = " + x);
                 }
             }
         }
@@ -142,46 +173,42 @@ namespace Physics
             }
         }*/
 
-        public class Aceleration : Movement 
+        public class Acceleration : Movement
         {
+            public double a;
             public double v;
             public double x;
-            public double a;
+            public double u;
+            public double s;
             public double t;
 
-            public void avtFinal()
-            {
-                Console.WriteLine("v = x + at");
-
-                v = x + (a * t);
-                Console.WriteLine("final velocity = " + v);
-            }
-
-            public void avtInitial()
-            {
-                Console.WriteLine("x = v - at");
-
-                x = v - (a * t);
-                Console.WriteLine("initial velocity = " + x);
-            }
-
-            public void avtAceleration()
+            public void GeneralAceleration()
             {
                 Console.WriteLine("a = (v - x) / t");
 
                 a = (v - x) / t;
-                Console.WriteLine("aceleration = " + a);
+                Console.WriteLine("acceleration = " + a);
             }
 
-            public void avtTime()
+            public void Acceleration2as()
             {
-                Console.WriteLine("t = (v - x) / a");
+                Console.WriteLine("a = (v^2 - x^2) / 2s");
 
-                t = (v - x) / a;
-                Console.WriteLine("time = " + t);
+                a = (Math.Pow(v, 2) - Math.Pow(x, 2)) / (2 * s);
+                Console.WriteLine("acceleration = " + a);
             }
         }
 
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
         public class Timeless : Movement
         {
             public double v;

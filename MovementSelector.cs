@@ -13,6 +13,7 @@ namespace Physics
             Console.WriteLine("select movement type");
             string MovementType = Console.ReadLine();
 
+
             if (MovementType == "average velocity")
             {
                 Console.WriteLine("select calculation");
@@ -28,7 +29,7 @@ namespace Physics
                     Console.WriteLine("enter time");
                     AverageVelocity.t = Convert.ToDouble(Console.ReadLine());
 
-                    AverageVelocity.svtAverageVelocity();
+                    AverageVelocity.AverageVelocity_svt();
                 }
                 
                 else if (AverageVelocityCalculation == "aceleration")
@@ -55,6 +56,7 @@ namespace Physics
                     AverageVelocity.AverageVelocity_m();
                 }
             }
+
 
             else if (MovementType == "final velocity")
             {
@@ -92,7 +94,7 @@ namespace Physics
                     FinalVelocity.GeneralFinalVelocity();
                 }
 
-                else if (FinalVelocityCalculation == "2as")
+                else if (FinalVelocityCalculation == "timless")
                 // v^2 = x^2 + 2as
                 {
                     Console.WriteLine("enter intial velocity");
@@ -119,6 +121,7 @@ namespace Physics
                     FinalVelocity.FinalVelocityv_m();
                 }
             }
+
 
             else if (MovementType == "initial velocity")
             {
@@ -170,16 +173,86 @@ namespace Physics
 
                     InitialVelocity.TimelessInitialVelocity();
                 }
+
+                else if (InitialVelocityCalculation == "ut")
+                // u = s/t - at/2
+                {
+                    Console.WriteLine("enter distance");
+                    InitialVelocity.s = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter time");
+                    InitialVelocity.t = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter aceleration");
+                    InitialVelocity.a = Convert.ToDouble(Console.ReadLine());
+
+                    InitialVelocity.InitialVelocity_at2();
+                }
+
+                else if (InitialVelocityCalculation == "vm")
+                // x = Vm - 2v
+                {
+                    Console.WriteLine("enter average velocity");
+                    InitialVelocity.vm = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter final velocity");
+                    InitialVelocity.v = Convert.ToDouble(Console.ReadLine());
+                }
             }
+
 
             else if (MovementType == "aceleration")
             {
                 Console.WriteLine("select how to calculate aceleration");
                 string AcelerationCalculation = Console.ReadLine();
+                var GetAcceleration = new Movement.Acceleration();
+
+                if (AcelerationCalculation == "general")
                 // a = (v - x) / t
+                {
+                    Console.WriteLine("enter final velocity");
+                    GetAcceleration.v = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter initial velocity");
+                    GetAcceleration.x = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter time");
+                    GetAcceleration.t = Convert.ToDouble(Console.ReadLine());
+
+                    GetAcceleration.GeneralAceleration();
+                }
+
+                else if (AcelerationCalculation == "timeless")
                 // a = (v^2 - x^2) / 2s
+                {
+                    Console.WriteLine("enter final velocity");
+                    GetAcceleration.v = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter initial velocity");
+                    GetAcceleration.x = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter distance");
+                    GetAcceleration.s = Convert.ToDouble(Console.ReadLine());
+
+                    GetAcceleration.Acceleration2as();
+                }
+
+                else if (AcelerationCalculation == "at2")
                 // a = 2(s - ut) / t^2
+                {
+                    Console.WriteLine("enter distance");
+                    GetAcceleration.s = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter initial velocity");
+                    GetAcceleration.u = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter time");
+                    GetAcceleration.t = Convert.ToDouble(Console.ReadLine());
+
+
+                }
             }
+
 
             else if (MovementType == "distance")
             {
@@ -189,6 +262,7 @@ namespace Physics
                 // s = (v^2 - x^2) / 2a
                 // s = ut + (at^2) / 2s
             }
+
 
             else if (MovementType == "time")
             {
