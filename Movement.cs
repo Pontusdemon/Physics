@@ -8,36 +8,32 @@ namespace Physics
 {
     public abstract class Movement
     {
+
         public class Velocity : Movement
         {
 
             public class Average : Velocity
             {
-                public double v;
+                public double Vm;
                 public double s;
                 public double t;
-                public double a;
-                public double vm;
                 public double x;
+                public double v;
 
                 public void AverageVelocity_svt()
                 {
-                    v = s / t;
-                    Console.WriteLine("average velocity = " + v);
+                    Console.WriteLine("Vm = s / t");
+
+                    Vm = s / t;
+                    Console.WriteLine("average velocity = " + Vm);
                 }
 
-                public void AverageVelcoityAceleration()
+                public void AverageVelocity_Vm()
                 {
-                    v = a * t;
-                    Console.WriteLine("average velocity");
-                }
+                    Console.WriteLine("Vm = (x + v) / 2");
 
-                public void AverageVelocity_m()
-                {
-                    Console.WriteLine("vm = (x + v) / 2");
-
-                    vm = (x + v) / 2;
-                    Console.WriteLine("average velocity = " + vm);
+                    Vm = (x + v) / 2;
+                    Console.WriteLine("average velocity = " + Vm);
                 }
             }
 
@@ -49,16 +45,7 @@ namespace Physics
                 public double a;
                 public double t;
                 public double s;
-                public double vm;
                 public double u;
-
-                public void svtFinalVelocity()
-                {
-                    Console.WriteLine("v = x + s / t");
-
-                    v = x + (s / t);
-                    Console.WriteLine("final velocity = " + v);
-                }
 
                 public void GeneralFinalVelocity()
                 {
@@ -73,19 +60,16 @@ namespace Physics
                     Console.WriteLine("final velocity = " + v);
                 }
 
-                public void FinalVelocity2as()
+                public void TimelessFinalVelocity()
                 {
                     Console.WriteLine("v=(x^2 + 2as)^0.5");
 
+                    if (u > 0)
+                    {
+                        x = u;
+                    }
+
                     v = Math.Sqrt(Math.Pow(x, 2) + (2 * a * s));
-                    Console.WriteLine("final velocity = " + v);
-                }
-
-                public void FinalVelocityv_m()/////
-                {
-                    Console.WriteLine("v = vm - 2x");
-
-                    v = vm - (2 * x);
                     Console.WriteLine("final velocity = " + v);
                 }
             }
@@ -95,23 +79,14 @@ namespace Physics
             {
                 public double x;
                 public double v;
-                public double s;
-                public double t;
                 public double a;
+                public double t;
+                public double s;
                 public double u;
-                public double vm;
 
-                public void svtInitialVelocity()
+                public void InitialVelocityAcceleration()
                 {
-                    Console.WriteLine("x = v - s / t");
-
-                    x = v - (s / t);
-                    Console.WriteLine("initial velocity = " + x);
-                }
-
-                public void AcelerationInitialVelocity()
-                {
-                    Console.WriteLine("x = v - at");
+                    Console.WriteLine("x = v - a * t");
 
                     x = v - (a * t);
                     Console.WriteLine("initial velocity = " + x);
@@ -131,14 +106,6 @@ namespace Physics
 
                     u = (s / t) - ((a * t) / 2);
                     Console.WriteLine("initial velocity = " + u);
-                }
-
-                public void InitialVelocity_vm()/////
-                {
-                    Console.WriteLine("x = Vm - 2v");
-
-                    x = vm - (2 * v);
-                    Console.WriteLine("initial velocity = " + x);
                 }
             }
         }
@@ -271,10 +238,6 @@ namespace Physics
 
                 u = (s / t) - ((a * t) / 2);
                 Console.WriteLine("initial velocity = " + u);
-
-                var GetFinalVelocity = new Movement.Aceleration();
-                GetFinalVelocity.v = u + (a * t);
-                Console.WriteLine("final velocity = " + GetFinalVelocity.v);
             }
 
             public void at2Time()
