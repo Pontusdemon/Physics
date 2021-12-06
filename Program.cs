@@ -15,8 +15,8 @@ namespace Physics
             }
             else if (Subject == "density")
             {
-                var GetDensity = new Density();
-                GetDensity.DensitySelector();
+                var GetDensity = new DensitySelector();
+                GetDensity.DensitySetup();
             }
             else if (Subject == "pressure")
             {

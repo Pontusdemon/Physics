@@ -6,74 +6,40 @@ using System.Threading.Tasks;
 
 namespace Physics
 {
-    class Density
+    public class Density
     {
         public double d;
+
         public double m;
         public double V;
+        public double p;
+        public double g;
+        public double h;
+        public double F;
 
-        public void DensitySelector()
+
+        public void GeneralDensity()
+        // d = m / V
         {
-            var GetCalculation = new Density();
-            Console.WriteLine("select variable");
-            var SelectVar = Console.ReadLine();
-
-            if (SelectVar=="d")
-            {
-                GetCalculation.CalculateDensity();
-            }
-
-            else if (SelectVar=="m")
-            {
-                GetCalculation.CalculateDensityMass();   
-            }
-
-            else if (SelectVar=="V")
-            {
-                GetCalculation.CalculateDensityVolume();
-            }
-        }
-
-        public void CalculateDensity()
-        {
-            Console.WriteLine("enter mass");
-            m = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("enter volume");
-            V = Convert.ToDouble(Console.ReadLine());
-
             Console.WriteLine("d = m / V");
 
             d = m / V;
             Console.WriteLine("density = " + d);
         }
 
-        public void CalculateDensityMass()
+        public void FLuidDensity()
+        // d = p / gh
         {
-            Console.WriteLine("enter density");
-            d = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("d = p / gh");
 
-            Console.WriteLine("enter volume");
-            V = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("m = dV");
-
-            m = d * V;
-            Console.WriteLine("mass = " + m);
+            d = p / (g * h);
+            Console.WriteLine("fluid density = " + d);
         }
 
-        public void CalculateDensityVolume()
+        public void ArkimedesDensity()
+        // d = F / gV
         {
-            Console.WriteLine("enter mass");
-            m = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("enter density");
-            d = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("V = m / d");
-
-            V = m / d;
-            Console.WriteLine("volume = " + V);
+            Console.WriteLine("d = FL / (g * V)");
         }
     }
 }

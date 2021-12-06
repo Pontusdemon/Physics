@@ -70,7 +70,7 @@ namespace Physics
                 public void svtFinalVelocity()
                 // v = x + s/t
                 {
-                    Console.WriteLine("v = x - s/t");
+                    Console.WriteLine("v = x - s / t");
 
                     v = x - (s / t);
                     Console.WriteLine("final velocity = " + v);
@@ -88,7 +88,7 @@ namespace Physics
                 public void TimelessFinalVelocity()
                 // v = (x^2 + 2as)^0.5
                 {
-                    Console.WriteLine("v=(x^2 + 2as)^0.5");
+                    Console.WriteLine("v = (x^2 + 2as)^0.5");
 
                     if (u > 0)
                     {
@@ -133,7 +133,7 @@ namespace Physics
                 public void InitialVelocityAcceleration()
                 // x = v - at
                 {
-                    Console.WriteLine("x = v - a * t");
+                    Console.WriteLine("x = v - at");
 
                     x = v - (a * t);
                     Console.WriteLine("initial velocity = " + x);
@@ -142,7 +142,7 @@ namespace Physics
                 public void TimelessInitialVelocity()
                 // x = (v^2 - 2as)^0.5
                 {
-                    Console.WriteLine("x = (v^^2 - 2as)^0.5");
+                    Console.WriteLine("x = (v^2 - 2as)^0.5");
 
                     x = Math.Sqrt(Math.Pow(v, 2) - (2 * a * s));
                     Console.WriteLine("initial velocity = " + x);
@@ -220,7 +220,7 @@ namespace Physics
             {
                 if (x > 0)
                 {
-                    Console.WriteLine("s = v / t");
+                    Console.WriteLine("s = (v - x) / t");
 
                     s = (v - x) / t;
                 }
