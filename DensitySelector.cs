@@ -40,6 +40,21 @@ namespace Physics
 
                 GetDensity.FLuidDensity();
             }
+
+            else if (DensityCalculation == "arkimedes")
+            // d = FL / (gV)
+            {
+                Console.WriteLine("enter lift force");
+                GetDensity.FL = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("enter gravity");
+                GetDensity.g = double.TryParse(Console.ReadLine(), out double g) ? g : 9.82;
+
+                Console.WriteLine("enter volume");
+                GetDensity.V = Convert.ToDouble(Console.ReadLine());
+
+                GetDensity.ArkimedesDensity();
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Physics
         public double p;
         public double g;
         public double h;
-        public double F;
+        public double FL;
 
 
         public void GeneralDensity()
@@ -30,7 +30,7 @@ namespace Physics
         public void FLuidDensity()
         // d = p / gh
         {
-            Console.WriteLine("d = p / gh");
+            Console.WriteLine("d = p / (gh)");
 
             d = p / (g * h);
             Console.WriteLine("fluid density = " + d);
@@ -39,7 +39,10 @@ namespace Physics
         public void ArkimedesDensity()
         // d = F / gV
         {
-            Console.WriteLine("d = FL / (g * V)");
+            Console.WriteLine("d = FL / (gV)");
+
+            d = FL / (g * V);
+            Console.WriteLine("density = " + d);
         }
     }
 }
