@@ -36,7 +36,7 @@ namespace Physics
                     Console.WriteLine("average velocity = " + Vm);
                 }
 
-                public void AccelerationAverageVelocity()
+                public void AverageVelocity_byAcceleration()
                 // Vm = at
                 {
                     Console.WriteLine("Vm = a * t");
@@ -102,18 +102,23 @@ namespace Physics
                 public void FinalVelocityCondition()
                 // v = Vm - 2x
                 {
+                    Console.WriteLine("v = Vm - 2x");
 
+                    v = Vm - (2 * x);
+                    Console.WriteLine("final velocity = " + v);
                 }
             }
 
 
             public class Initial : Velocity
             {
-                public double x;
+                public double Vm;
                 public double v;
+                public double x;
                 public double a;
-                public double t;
                 public double s;
+                public double t;
+
                 public double u;
 
                 public void svtInitialVelocity()
@@ -144,7 +149,7 @@ namespace Physics
                 }
 
                 public void InitialVelocityDIstance()
-                // x = s/t - at/2
+                // u = s/t - at/2
                 {
                     Console.WriteLine("u = s / t - at / 2");
 
@@ -152,18 +157,27 @@ namespace Physics
                     Console.WriteLine("initial velocity = " + u);
                 }
 
+                public void ConditionalInitialVelocity()
                 // x = Vm - 2v
+                {
+                    Console.WriteLine("x = Vm - 2v");
+
+                    x = Vm - (2 * v);
+                    Console.WriteLine("initial velocity = " + x);
+                }
             }
         }
 
         public class Acceleration : Movement
         {
-            public double a;
+            public double Vm;
             public double v;
             public double x;
-            public double u;
+            public double a;
             public double s;
             public double t;
+
+            public double u;
 
             public void GeneralAcceleration()
             {
@@ -181,12 +195,109 @@ namespace Physics
                 Console.WriteLine("acceleration = " + a);
             }
 
-            public void Acceleration_at2()
+            public void Aceleration_byDistance()
             {
                 Console.WriteLine("a = 2(s - ut) / t^2");
 
                 a = (2 * (s - (u * t))) / Math.Pow(t, 2);
                 Console.WriteLine("acceleration = " + a);
+            }
+        }
+
+        public class Distance : Movement
+        {
+            public double Vm;
+            public double v;
+            public double x;
+            public double a;
+            public double s;
+            public double t;
+
+            public double u;
+
+            public void svtDIstance()
+            //
+            {
+                if (x > 0)
+                {
+                    Console.WriteLine("s = v / t");
+
+                    s = (v - x) / t;
+                }
+                else
+                {
+                    Console.WriteLine("s = v / t");
+
+                    s = v / t;
+                }
+
+                Console.WriteLine("movement distance = " + s);
+            }
+
+            public void TimelessDistance()
+            // s = (v^2 - x^2) / 2a
+            {
+                Console.WriteLine("s = (v^2 - x^2) / 2a");
+
+                s = (Math.Pow(v, 2) - Math.Pow(x, 2)) / (2 * a);
+                Console.WriteLine("distance = " + s);
+            }
+
+            public void DistanceCondition()
+            // s = ut + (at^2)/2
+            {
+                Console.WriteLine("s = ut + (at^2)/2");
+
+                s = (u * t) + (a * Math.Pow(t, 2)) / 2;
+            }
+        }
+
+        public class Time : Movement
+        {
+
+            public double Vm;
+            public double v;
+            public double x;
+            public double a;
+            public double s;
+            public double t;
+
+            public double u;
+
+            public void svt_Time()
+            // t = s / (v - x)
+            {
+                if (x > 0)
+                {
+                    Console.WriteLine("t = s / (v - x)");
+
+                    t = s / (v - x);
+                }
+                else
+                {
+                    Console.WriteLine("t = s / v");
+
+                    t = s / v;
+                }
+                Console.WriteLine("movement time = " + t);
+            }
+
+            public void AccelerationTime()
+            // t = (v - x) / a
+            {
+                Console.WriteLine("t = (v - x) / a");
+
+                t = (v - x) / a;
+                Console.WriteLine("movement time = " + t);
+            }
+
+            public void DistanceTime()
+            // t = (-u + (u^2 + 2as)^0.5) /a
+            {
+                Console.WriteLine("t = (-u + (u^2 + 2as)^0.5) / a");
+
+                t = (-u + Math.Sqrt(Math.Pow(u, 2) + (2 * a * s))) / a;
+                Console.WriteLine("movement time = " + t);
             }
         }
 
@@ -221,48 +332,5 @@ namespace Physics
                 Console.WriteLine("time = " + t);
             }
         }*/
-
-
-
-
-
-
-
-
-
-
-
-
-        public class Distance : Movement
-        {
-            public double s;
-            public double u;
-            public double t;
-            public double a;
-
-            public void at2Distance()
-            {
-                Console.WriteLine("s = ut + (at^2) /2");
-
-                s = (u * t) + ((a * Math.Pow(t, 2)) / 2);
-                Console.WriteLine("distance = " + s);
-            }
-
-            public void at2Velocity()
-            {
-                Console.WriteLine("u = s/t - at/2");
-
-                u = (s / t) - ((a * t) / 2);
-                Console.WriteLine("initial velocity = " + u);
-            }
-
-            public void at2Time()
-            {
-                Console.WriteLine("t = (-u + (2as + u^2)^0.5) /a");
-
-                t = (-u + Math.Sqrt((2 * a * s) + Math.Pow(u, 2))) / a;
-                Console.WriteLine("time = " + t);
-            }
-        }
     }
 }
