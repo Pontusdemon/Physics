@@ -13,15 +13,10 @@ namespace Physics
                 var GetMovementSelector = new MovementSelector();
                 GetMovementSelector.MovementSetup();
             }
-            else if (Subject == "density")
+            else if (Subject == "thermo")
             {
-                var GetDensity = new DensitySelector();
-                GetDensity.DensitySetup();
-            }
-            else if (Subject == "pressure")
-            {
-                var GetPressureSelector = new PressureSelector();
-                GetPressureSelector.SelectPressure();
+                var GetTHermoSelector = new ThermoPhysicSelector();
+                GetTHermoSelector.ThermoSetup();
             }
             else if (Subject == "force")
             {

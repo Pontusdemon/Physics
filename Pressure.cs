@@ -8,37 +8,36 @@ namespace Physics
 {
     public abstract class Pressure
     {
-        public abstract void Tryck();
+        public double g;
+        public double h;
+        public double FL;
+        public double V;
+        public double T;
         public class Defined : Pressure
         {
             public double p;
+
             public double F;
             public double A;
+            public double d;
 
-            public override void Tryck()
+            public void DefinedPressure()
+            // p = F / A
             {
                 Console.WriteLine("p = F / A");
 
                 p = F / A;
-                Console.WriteLine("pressure = " + p);
-            }
-
-            public void DefinedPressureForce()
-            {
-                Console.WriteLine("F = pA");
-
-                F = p * A;
-                Console.WriteLine("pressure force = " + F);
-            }
-
-            public void DefinedPressureArea()
-            {
-                Console.WriteLine("A = F / p");
-
-                A = F / p;
-                Console.WriteLine("pressure area = " + A);
+                Console.WriteLine("defined pressure = " + p);
             }
         }
+
+        public class Fluid : Pressure
+        {
+            public double p;
+
+        }
+    }
+/*
         public class Fluid : Pressure  ///
         {
             public double p;
@@ -157,5 +156,5 @@ namespace Physics
                 Console.WriteLine("gas const = " + k);
             }
         }
-    }
+    }*/
 }

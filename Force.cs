@@ -8,9 +8,8 @@ namespace Physics
 {
     public class Force
     {
-        public class Inertia : Force
-        {
-
-        }
+        // pressure force
+        // lift force
+        // inertia
     }
 }
