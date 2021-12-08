@@ -282,6 +282,7 @@ namespace Physics
             }
 
 
+
             else if (MovementType == "distance")
             {
                 Console.WriteLine("select distance calculation");
@@ -333,6 +334,7 @@ namespace Physics
                     MovementDistance.DistanceCondition();
                 }
             }
+
 
 
             else if (MovementType == "time")

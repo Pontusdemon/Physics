@@ -136,6 +136,81 @@ namespace Physics
             {
                 Console.WriteLine("select force type");
                 string ForceType = Console.ReadLine();
+                var GetForce = new Force();
+
+                if (ForceType == "pressure force")
+                // F = pA
+                {
+                    Console.WriteLine("enter pressure");
+                    GetForce.p = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter pressure area");
+                    GetForce.A = Convert.ToDouble(Console.ReadLine());
+
+                    GetForce.PressureForce();
+                }
+
+                else if (ForceType == "arkimedes")
+                // FL = pgV
+                {
+                    Console.WriteLine("enter pressure");
+                    GetForce.p = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter gravity");
+                    GetForce.g = double.TryParse(Console.ReadLine(), out double g) ? g : 9.82;
+
+                    Console.WriteLine("enter volume");
+                    GetForce.V = Convert.ToDouble(Console.ReadLine());
+
+                    GetForce.ArkimedesForce();
+                }
+            }
+
+
+            else if (ThermoSubject == "volume")
+            {
+                Console.WriteLine("select volume type");
+                string VolumeType = Console.ReadLine();
+                var Volume = new ThermoPhysics.Volume();
+
+                if (VolumeType == "density")
+                // V = m / d
+                {
+                    Console.WriteLine("enter mass");
+                    Volume.m = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter density");
+                    Volume.d = Convert.ToDouble(Console.ReadLine());
+
+                    Volume.VolumeByDensity();
+                }
+
+                else if (VolumeType == "arkimedes")
+                // V = FL / (d * g)
+                {
+                    Console.WriteLine("enter lift force");
+                    Volume.FL = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter density");
+                    Volume.d = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter gravity");
+                    Volume.g = double.TryParse(Console.ReadLine(), out double g) ? g : 9.82;
+
+                    Volume.volumeByArkimedes();
+                }
+
+                else if (VolumeType == "gaslaw")
+                // V = 
+                {
+
+                }
+            }
+
+
+            else if (ThermoSubject == "mass")
+            {
+
             }
         }
     }

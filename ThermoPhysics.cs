@@ -114,5 +114,41 @@ namespace Physics
                 Console.WriteLine("gas pressure = " + p);
             }
         }
+
+
+        public class Volume : ThermoPhysics
+        {
+            public double V;
+
+            public double d;
+            public double m;
+            public double g;
+            public double FL;
+            public double k;
+            public double T;
+
+            public void VolumeByDensity()
+            // V = m / d
+            {
+                Console.WriteLine("V = m / d");
+
+                V = m / d;
+                Console.WriteLine("volume = " + V);
+            }
+
+            public void volumeByArkimedes()
+            // V = FL / (dg)
+            {
+                Console.WriteLine("V = FL / (d * g)");
+
+                V = FL / (d * g);
+                Console.WriteLine("volume  = " + V);
+            }
+
+            public void VolumeByGaslaw()
+            {
+                
+            }
+        }
     }
 }
