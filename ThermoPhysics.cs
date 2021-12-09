@@ -14,7 +14,8 @@ namespace Physics
         // FL = liftforce
         // V = volume
         // m  = mass
-
+        // g = gravity
+        // A = area
 
         public class Density : ThermoPhysics
         {
@@ -26,7 +27,6 @@ namespace Physics
             public double g;
             public double h;
             public double FL;
-
 
             public void GeneralDensity()
             // d = m / V
@@ -55,7 +55,6 @@ namespace Physics
                 Console.WriteLine("density = " + d);
             }
         }
-
 
         public class Pressure : ThermoPhysics
         {
@@ -118,7 +117,6 @@ namespace Physics
             }
         }
 
-
         public class Force : ThermoPhysics
         {
             // pressure force
@@ -151,7 +149,6 @@ namespace Physics
                 Console.WriteLine("lift force = " + FL);
             }
         }
-
 
         public class Volume : ThermoPhysics
         {
@@ -193,7 +190,6 @@ namespace Physics
             }
         }
 
-
         public class CalculationMass : ThermoPhysics
         {
             public double m;
@@ -209,7 +205,6 @@ namespace Physics
                 Console.WriteLine("mass = " + m);
             }
         }
-
 
         public class Gravity : ThermoPhysics
         {
@@ -266,7 +261,6 @@ namespace Physics
                 }
             }
         }
-
 
         public class Area : ThermoPhysics
         {

@@ -13,7 +13,6 @@ namespace Physics
             Console.WriteLine("select thermophysics type");
             string ThermoSubject = Console.ReadLine();
 
-
             if (ThermoSubject == "density")
             {
                 Console.WriteLine("select density type");
@@ -62,7 +61,6 @@ namespace Physics
                     GetDensity.ArkimedesDensity();
                 }
             }
-
 
             else if (ThermoSubject == "pressure")
             {
@@ -131,7 +129,6 @@ namespace Physics
                 }
             }
 
-
             else if (ThermoSubject == "force")
             {
                 Console.WriteLine("select force type");
@@ -165,7 +162,6 @@ namespace Physics
                     GetForce.ArkimedesForce();
                 }
             }
-
 
             else if (ThermoSubject == "volume")
             {
@@ -214,14 +210,6 @@ namespace Physics
                 }
             }
 
-
-            else if (ThermoSubject == "gravity")
-            {
-                var NewVoid = new ThermoPhysics.Gravity();
-                NewVoid.GravityExplainer();
-            }
-
-
             else if (ThermoSubject == "mass")
             // m = d * V
             {
@@ -233,6 +221,17 @@ namespace Physics
                 Mass.V = Convert.ToDouble(Console.ReadLine());
 
                 Mass.MassFunction();
+            }
+
+            else if (ThermoSubject == "gravity")
+            {
+                var NewVoid = new ThermoPhysics.Gravity();
+                NewVoid.GravityExplainer();
+            }
+
+            else if (ThermoSubject == "area")
+            {
+                
             }
         }
     }
