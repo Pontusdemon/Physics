@@ -136,7 +136,7 @@ namespace Physics
             {
                 Console.WriteLine("select force type");
                 string ForceType = Console.ReadLine();
-                var GetForce = new Force();
+                var GetForce = new ThermoPhysics.Force();
 
                 if (ForceType == "pressure force")
                 // F = pA
@@ -201,16 +201,38 @@ namespace Physics
                 }
 
                 else if (VolumeType == "gaslaw")
-                // V = 
+                // V = (k * T) / p
                 {
+                    Console.WriteLine("enter konstant");
+                    Volume.k = Convert.ToDouble(Console.ReadLine());
 
+                    Console.WriteLine("enter temperature");
+                    Volume.T = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter gas pressure");
+                    Volume.p = Convert.ToDouble(Console.ReadLine());
                 }
             }
 
 
-            else if (ThermoSubject == "mass")
+            else if (ThermoSubject == "gravity")
             {
+                var NewVoid = new ThermoPhysics.Gravity();
+                NewVoid.GravityExplainer();
+            }
 
+
+            else if (ThermoSubject == "mass")
+            // m = d * V
+            {
+                var Mass = new ThermoPhysics.CalculationMass();
+                Console.WriteLine("enter density");
+                Mass.d = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("enter volume");
+                Mass.V = Convert.ToDouble(Console.ReadLine());
+
+                Mass.MassFunction();
             }
         }
     }

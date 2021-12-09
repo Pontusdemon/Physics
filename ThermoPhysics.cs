@@ -10,7 +10,10 @@ namespace Physics
     {
         // d = density
         // p = pressure
-        // m = mass
+        // F = force
+        // FL = liftforce
+        // V = volume
+        // m  = mass
 
 
         public class Density : ThermoPhysics
@@ -116,6 +119,40 @@ namespace Physics
         }
 
 
+        public class Force : ThermoPhysics
+        {
+            // pressure force
+            // lift force
+            // inertia
+
+            public double F;
+            public double FL;
+
+            public double p;
+            public double A;
+            public double g;
+            public double V;
+
+            public void PressureForce()
+            // F = p * A
+            {
+                Console.WriteLine("F = p * A");
+
+                F = p * A;
+                Console.WriteLine("pressure force = " + F);
+            }
+
+            public void ArkimedesForce()
+            // FL = pgV
+            {
+                Console.WriteLine("FL = pgV");
+
+                FL = p * g * V;
+                Console.WriteLine("lift force = " + FL);
+            }
+        }
+
+
         public class Volume : ThermoPhysics
         {
             public double V;
@@ -126,6 +163,7 @@ namespace Physics
             public double FL;
             public double k;
             public double T;
+            public double p;
 
             public void VolumeByDensity()
             // V = m / d
@@ -146,9 +184,93 @@ namespace Physics
             }
 
             public void VolumeByGaslaw()
+            // 
             {
-                
+                Console.WriteLine("V = (k * T) / p");
+
+                V = (k * T) / p;
+                Console.WriteLine("volume = " + V);
             }
+        }
+
+
+        public class CalculationMass : ThermoPhysics
+        {
+            public double m;
+
+            public double d;
+            public double V;
+
+            public void MassFunction()
+            {
+                Console.WriteLine("m = d * V");
+
+                m = d * V;
+                Console.WriteLine("mass = " + m);
+            }
+        }
+
+
+        public class Gravity : ThermoPhysics
+        {
+            public double g;
+
+            public double d;
+            public double p;
+            public double h;
+            public double FL;
+            public double V;
+
+            public void GravityExplainer()
+            {
+                Console.WriteLine("please not that g = 9. 82 in most cases but the calculations for how to prove it will be what you find now");
+
+                Console.WriteLine("select calculation for g");
+                string GravityCalculation = Console.ReadLine();
+                var GetGravity = new ThermoPhysics.Gravity();
+
+                if (GravityCalculation == "fluid")
+                // g = p / (d * h)
+                {
+                    Console.WriteLine("g = p / (d * h)");
+
+                    Console.WriteLine("enter fluid pressure");
+                    GetGravity.p = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter fluid density");
+                    GetGravity.d = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter fluid height");
+                    GetGravity.h = Convert.ToDouble(Console.ReadLine());
+
+                    g = p / (d * h);
+                    Console.WriteLine("g = " + g);
+                }
+
+                else if (GravityCalculation == "Arkimedes")
+                // g = FL / (d * V)
+                {
+                    Console.WriteLine("g = FL / (d * V)");
+
+                    Console.WriteLine("enter lift force");
+                    GetGravity.FL = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter density");
+                    GetGravity.d = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter volume");
+                    GetGravity.V = Convert.ToDouble(Console.ReadLine());
+
+                    g = FL / (d * V);
+                    Console.WriteLine("g = " + g);
+                }
+            }
+        }
+
+
+        public class Area : ThermoPhysics
+        {
+
         }
     }
 }
