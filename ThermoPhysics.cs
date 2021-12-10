@@ -28,6 +28,9 @@ namespace Physics
             public double h;
             public double FL;
 
+            // d = m / V
+            // d = p / (g * h)
+
             public void GeneralDensity()
             // d = m / V
             {
@@ -46,7 +49,7 @@ namespace Physics
                 Console.WriteLine("fluid density = " + d);
             }
 
-            public void ArkimedesDensity()
+            public void DensityByArkimedes()
             // d = F / gV
             {
                 Console.WriteLine("d = FL / (gV)");
@@ -71,6 +74,11 @@ namespace Physics
             public double k;
             public double T;
 
+            // p = F / A
+            // P = x + dgh
+            // p = FL / (g * V)
+            // p = (k * T) / V
+
             public void DefinedPressure()
             // p = F / A
             {
@@ -89,7 +97,7 @@ namespace Physics
                 Console.WriteLine("fluid pressure = " + p);
             }
 
-            public void ExternalFluidPressure()
+            public void ExternalPressureByFluidPressure()
             // x = p - dgh
             {
                 Console.WriteLine("x = p - dgh");
@@ -98,7 +106,7 @@ namespace Physics
                 Console.WriteLine("external pressure = " + x);
             }
 
-            public void ArkimedesPressure()
+            public void PressureByArkimedes()
             // p = FL / (gV)
             {
                 Console.WriteLine("p = F / gV");
@@ -107,7 +115,7 @@ namespace Physics
                 Console.WriteLine("pressure = " + p);
             }
 
-            public void GeneralGaslawPressure()
+            public void PressureByGeneralGaslaw()
             // p = (k * T) / V;
             {
                 Console.WriteLine("p = kT / V");
@@ -140,7 +148,7 @@ namespace Physics
                 Console.WriteLine("pressure force = " + F);
             }
 
-            public void ArkimedesForce()
+            public void LiftForceByArkimedes()
             // FL = pgV
             {
                 Console.WriteLine("FL = pgV");
@@ -180,7 +188,7 @@ namespace Physics
                 Console.WriteLine("volume  = " + V);
             }
 
-            public void VolumeByGaslaw()
+            public void VolumeByGeneralGaslaw()
             // 
             {
                 Console.WriteLine("V = (k * T) / p");
@@ -264,7 +272,19 @@ namespace Physics
 
         public class Area : ThermoPhysics
         {
+            public double A;
 
+            public double F;
+            public double p;
+
+            public void AreaByDefinedPressure()
+            // A = F / p
+            {
+                Console.WriteLine("A = F / p");
+
+                A = F / p;
+                Console.WriteLine("defined pressure area = " + A);
+            }
         }
     }
 }

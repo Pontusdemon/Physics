@@ -8,119 +8,103 @@ namespace Physics
 {
     public abstract class Movement
     {
-        // Vm = average velocity
-        // v = final velocity
-        // x = initial velocity
-        // a = acceleration
-        // s = distance
-        // t = time
+        // AVerage Velocity
+        // Velocity
+        // Acceleration
+        // Distance
+        // Time
 
-        public class Velocity : Movement
+        public abstract class Velocity : Movement
         {
-
+            public abstract void VelocityMaster();
             public class Average : Velocity
             {
-                public double Vm;
                 public double v;
-                public double x;
-                public double a;
+
                 public double s;
                 public double t;
 
-                public void GeneralAverageVelocity()
-                // Vm = s / t
+                public override void VelocityMaster()
                 {
-                    Console.WriteLine("Vm = s / t");
-
-                    Vm = s / t;
-                    Console.WriteLine("average velocity = " + Vm);
-                }
-
-                public void AverageVelocity_byAcceleration()
-                // Vm = at
-                {
-                    Console.WriteLine("Vm = a * t");
-
-                    Vm = a * t;
-                    Console.WriteLine("average velocity = " + Vm);
-                }
-
-                public void ConditionalAverageVelocity()
-                // Vm = (x + v) / 2
-                {
-                    Console.WriteLine("Vm = (x + v) / 2");
-
-                    Vm = (x + v) / 2;
-                    Console.WriteLine("average velocity = " + Vm);
+                    v = s / t;
+                    Console.WriteLine("average velocity = " + v);
                 }
             }
 
-
-            public class Final : Velocity
+            public class Master : Velocity
             {
-                public double Vm;
                 public double v;
+
+                public double x;
+                public double a;
+                public double t;
+
+                public override void VelocityMaster()
+                {
+                    v = x + (a * t);
+                    Console.WriteLine("velocity = " + v);
+                    // x = v - at
+                }
+            }
+
+            public class Timeless : Velocity
+            {
+                public double v;
+
                 public double x;
                 public double a;
                 public double s;
-                public double t;
 
-                public double u;
+                public double u; // Exeption rule 
 
-                public void svtFinalVelocity()
-                // v = x + s/t
+                public override void VelocityMaster()
                 {
-                    Console.WriteLine("v = x - s / t");
+                    Console.WriteLine("enter initial velocity");
+                    v = Convert.ToDouble(Console.ReadLine());
 
-                    v = x - (s / t);
-                    Console.WriteLine("final velocity = " + v);
-                }
+                    Console.WriteLine("enter acceleration");
+                    a = Convert.ToDouble(Console.ReadLine());
 
-                public void GeneralFinalVelocity()
-                // v = x + at
-                {
-                    Console.WriteLine("v = x + at");
+                    Console.WriteLine("enter distance");
+                    s = Convert.ToDouble(Console.ReadLine());
 
-                    v = x + (a * t);
-                    Console.WriteLine("final velocity = " + v);
-                }
-
-                public void TimelessFinalVelocity()
-                // v = (x^2 + 2as)^0.5
-                {
-                    Console.WriteLine("v = (x^2 + 2as)^0.5");
+                    v = Math.Sqrt(Math.Pow(x, 2) + (2 * a * s));
 
                     if (u > 0)
                     {
                         x = u;
                     }
 
-                    v = Math.Sqrt(Math.Pow(x, 2) + (2 * a * s));
-                    Console.WriteLine("final velocity = " + v);
-                }
-
-                public void FinalVelocityCondition()
-                // v = Vm - 2x
-                {
-                    Console.WriteLine("v = Vm - 2x");
-
-                    v = Vm - (2 * x);
-                    Console.WriteLine("final velocity = " + v);
+                    Console.WriteLine("velocity = " + v);
                 }
             }
 
 
             public class Initial : Velocity
             {
-                public double Vm;
+                // new
+                public double x;
+
+                public double v;
+                public double a;
+                public double s;
+                public double t;
+
+                public override void VelocityMaster()
+                {
+                    throw new NotImplementedException();
+                }
+
+                // OLD
+                /*public double Vm;
                 public double v;
                 public double x;
                 public double a;
                 public double s;
                 public double t;
 
-                public double u;
-
+                public double u;*/
+/*
                 public void svtInitialVelocity()
                 // x = v - s / t
                 {
@@ -165,6 +149,7 @@ namespace Physics
                     x = Vm - (2 * v);
                     Console.WriteLine("initial velocity = " + x);
                 }
+*/
             }
         }
 

@@ -58,7 +58,7 @@ namespace Physics
                     Console.WriteLine("enter volume");
                     GetDensity.V = Convert.ToDouble(Console.ReadLine());
 
-                    GetDensity.ArkimedesDensity();
+                    GetDensity.DensityByArkimedes();
                 }
             }
 
@@ -110,7 +110,7 @@ namespace Physics
                     Console.WriteLine("enter volume");
                     Pressure.V = Convert.ToDouble(Console.ReadLine());
 
-                    Pressure.ArkimedesPressure();
+                    Pressure.PressureByArkimedes();
                 }
 
                 else if (PressureType == "gaslaw")
@@ -125,7 +125,7 @@ namespace Physics
                     Console.WriteLine("enter volume");
                     Pressure.V = Convert.ToDouble(Console.ReadLine());
 
-                    Pressure.GeneralGaslawPressure();
+                    Pressure.PressureByGeneralGaslaw();
                 }
             }
 
@@ -159,7 +159,7 @@ namespace Physics
                     Console.WriteLine("enter volume");
                     GetForce.V = Convert.ToDouble(Console.ReadLine());
 
-                    GetForce.ArkimedesForce();
+                    GetForce.LiftForceByArkimedes();
                 }
             }
 
@@ -231,7 +231,19 @@ namespace Physics
 
             else if (ThermoSubject == "area")
             {
-                
+                Console.WriteLine("select area type");
+                string AreaType = Console.ReadLine();
+                var GetArea = new ThermoPhysics.Area();
+
+                if (AreaType == "defined pressure area")
+                // A = F / p
+                {
+                    Console.WriteLine("enter force");
+                    GetArea.F = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter pressure");
+                    GetArea.p = Convert.ToDouble(Console.ReadLine());
+                }
             }
         }
     }
