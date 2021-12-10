@@ -59,15 +59,6 @@ namespace Physics
 
                 public override void VelocityMaster()
                 {
-                    Console.WriteLine("enter initial velocity");
-                    v = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter acceleration");
-                    a = Convert.ToDouble(Console.ReadLine());
-
-                    Console.WriteLine("enter distance");
-                    s = Convert.ToDouble(Console.ReadLine());
-
                     v = Math.Sqrt(Math.Pow(x, 2) + (2 * a * s));
 
                     if (u > 0)
@@ -75,25 +66,10 @@ namespace Physics
                         x = u;
                     }
 
+                    //
                     Console.WriteLine("velocity = " + v);
                 }
             }
-
-
-            public class Initial : Velocity
-            {
-                // new
-                public double x;
-
-                public double v;
-                public double a;
-                public double s;
-                public double t;
-
-                public override void VelocityMaster()
-                {
-                    throw new NotImplementedException();
-                }
 
                 // OLD
                 /*public double Vm;
@@ -152,7 +128,7 @@ namespace Physics
 */
             }
         }
-
+        /*
         public class Acceleration : Movement
         {
             public double Vm;
@@ -284,7 +260,7 @@ namespace Physics
                 t = (-u + Math.Sqrt(Math.Pow(u, 2) + (2 * a * s))) / a;
                 Console.WriteLine("movement time = " + t);
             }
-        }
+        }*/
 
 
         /*public class Velocity : Movement
@@ -317,5 +293,4 @@ namespace Physics
                 Console.WriteLine("time = " + t);
             }
         }*/
-    }
 }

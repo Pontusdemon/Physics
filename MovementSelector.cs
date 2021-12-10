@@ -48,6 +48,14 @@ namespace Physics
                     {
                         Console.WriteLine("x = v - at");
 
+                        Console.WriteLine("enter velocity");
+                        Velocity.v = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("enter acceleration");
+                        Velocity.a = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("enter time");
+                        Velocity.t = Convert.ToDouble(Console.ReadLine());
                     }
                     else
                     {
@@ -73,6 +81,20 @@ namespace Physics
 
                     Console.WriteLine("initial velocity?");
                     string TimelessVelocityOption = Console.ReadLine();
+
+                    if (TimelessVelocityOption == "yes") ;
+                    {
+                        Console.WriteLine("x = (v^2 - 2as)^0.5");
+
+                        Console.WriteLine("enter velocity");
+                        Timeless.v = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("enter acceleration");
+                        Timeless.a = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("enter distance");
+                        Timeless.s = Convert.ToDouble(Console.ReadLine());
+                    }
                 }
 
                 else
