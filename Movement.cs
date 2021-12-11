@@ -25,6 +25,7 @@ namespace Physics
                 public double t;
 
                 public override void VelocityMaster()
+                    // v = s / t
                 {
                     v = s / t;
                     Console.WriteLine("average velocity = " + v);
@@ -40,6 +41,7 @@ namespace Physics
                 public double t;
 
                 public override void VelocityMaster()
+                    // v = x + at
                 {
                     v = x + (a * t);
                     Console.WriteLine("velocity = " + v);
@@ -58,6 +60,7 @@ namespace Physics
                 public double u; // Exeption rule 
 
                 public override void VelocityMaster()
+                    // v = (x^2 + 2as)^0.5
                 {
                     v = Math.Sqrt(Math.Pow(x, 2) + (2 * a * s));
 
@@ -66,12 +69,50 @@ namespace Physics
                         x = u;
                     }
 
-                    //
                     Console.WriteLine("velocity = " + v);
+
+                    // extra 
                 }
             }
+        }
 
+        public class Acceleration : Movement
+        {
+            public double a;
+
+            public double v;
+            public double x;
+            public double t;
+            public double s;
+
+            public double u; 
+
+            public void GeneralAcceleration()
+                // a = (v - x) / t
+            {
+                a = (v - x) / t;
+                Console.WriteLine("acceleration = " + a);
+            }
+
+            public void TimelessAcceleration()
+                // a = (v^2 - x^2) / 2s
+            {
+                a = Math.Sqrt((Math.Pow(v, 2) - Math.Pow(x, 2)) / (2 * s));
+                Console.WriteLine("acceleration = " + a);
+            }
+
+            public void AccelerationByDistance()
+                // a = 2(s - ut) / t^2
+            {
+                a = (2 * (s - (u * t))) / Math.Pow(t, 2);
+                Console.WriteLine("acceleration = " + a);
+            }
+        }
+    }
                 // OLD
+
+
+
                 /*public double Vm;
                 public double v;
                 public double x;
@@ -126,8 +167,8 @@ namespace Physics
                     Console.WriteLine("initial velocity = " + x);
                 }
 */
-            }
-        }
+           // }
+       // }
         /*
         public class Acceleration : Movement
         {

@@ -59,6 +59,8 @@ namespace Physics
                     }
                     else
                     {
+                        // v = x + at
+
                         Console.WriteLine("enter initial velocity");
                         Velocity.x = Convert.ToDouble(Console.ReadLine());
 
@@ -82,8 +84,10 @@ namespace Physics
                     Console.WriteLine("initial velocity?");
                     string TimelessVelocityOption = Console.ReadLine();
 
-                    if (TimelessVelocityOption == "yes") ;
+                    if (TimelessVelocityOption == "yes")
                     {
+                        // x = (v^2 - 2as)^0.5
+
                         Console.WriteLine("x = (v^2 - 2as)^0.5");
 
                         Console.WriteLine("enter velocity");
@@ -95,6 +99,20 @@ namespace Physics
                         Console.WriteLine("enter distance");
                         Timeless.s = Convert.ToDouble(Console.ReadLine());
                     }
+                    else
+                    {
+                        // v = (x^2 + 2as)^0.5
+
+                        Console.WriteLine("enter initial velocity");
+                        Timeless.x = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("enter acceleration");
+                        Timeless.a = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("enter distance");
+                        Timeless.s = Convert.ToDouble(Console.ReadLine());
+                    }
+                    Timeless.VelocityMaster();
                 }
 
                 else
@@ -106,7 +124,55 @@ namespace Physics
 
             else if (MovementType == "acceleration")
             {
-                // code for acceleration
+                var Acceleration = new Movement.Acceleration();
+
+                Console.WriteLine("enter calculation for acceleration");
+                string AccelerationCalculation = Console.ReadLine();
+
+                if (AccelerationCalculation == "general")
+                // a = (v - x) / t
+                {
+                    Console.WriteLine("enter velocity");
+                    Acceleration.v = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter initial velocity");
+                    Acceleration.x = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter time");
+                    Acceleration.t = Convert.ToDouble(Console.ReadLine());
+
+                    Acceleration.GeneralAcceleration();
+                }
+
+                else if (AccelerationCalculation == "timeless")
+                // a = (v^2 - x^2) / 2s
+                {
+                    Console.WriteLine("enter velocity");
+                    Acceleration.v = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter initial velocity");
+                    Acceleration.x = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter distance");
+                    Acceleration.s = Convert.ToDouble(Console.ReadLine());
+
+                    Acceleration.TimelessAcceleration();
+                }
+
+                else
+                // a = 2(s - ut) / t^2
+                {
+                    Console.WriteLine("enter distance");
+                    Acceleration.s = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter initial velocity");
+                    Acceleration.u = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter time");
+                    Acceleration.t = Convert.ToDouble(Console.ReadLine());
+
+                    Acceleration.AccelerationByDistance();
+                }
             }
 
             else if (MovementType == "distance")
