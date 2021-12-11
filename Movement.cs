@@ -74,6 +74,21 @@ namespace Physics
                     // extra 
                 }
             }
+
+            public class Initial : Velocity
+            {
+                public double u;
+
+                public double s;
+                public double t;
+                public double a;
+
+                public override void VelocityMaster()
+                {
+                    u = (s / t) - ((a * t) / 2);
+                    Console.WriteLine("initial velocity =" + u);
+                }
+            }
         }
 
         public class Acceleration : Movement

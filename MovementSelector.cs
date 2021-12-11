@@ -116,9 +116,20 @@ namespace Physics
                 }
 
                 else
-                // extra
+                // u = s/t - at/2
                 {
+                    var ExtraVelocity = new Movement.Velocity.Initial();
 
+                    Console.WriteLine("enter distance");
+                    ExtraVelocity.s = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter time");
+                    ExtraVelocity.t = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter acceleration");
+                    ExtraVelocity.a = Convert.ToDouble(Console.ReadLine());
+
+                    ExtraVelocity.VelocityMaster();
                 }
             }
 
