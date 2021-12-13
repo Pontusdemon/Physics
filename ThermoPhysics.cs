@@ -17,48 +17,64 @@ namespace Physics
         // g = gravity
         // A = area
 
-        public class Density : ThermoPhysics
+        public abstract class Density : ThermoPhysics
         {
-            public double d;
+            public abstract void MasterDensity();
 
-            public double m;
-            public double V;
-            public double p;
-            public double g;
-            public double h;
-            public double FL;
-
-            // d = m / V
-            // d = p / (g * h)
-
-            public void GeneralDensity()
-            // d = m / V
+            public class General : Density
             {
-                Console.WriteLine("d = m / V");
+                public double d;
 
-                d = m / V;
-                Console.WriteLine("density = " + d);
+                public double m;
+                public double V;
+
+                public override void MasterDensity()
+                    // d = m / V
+                {
+                    d = m / V;
+                    Console.WriteLine("density = " + d);
+                }
             }
 
-            public void FLuidDensity()
-            // d = p / gh
+            public class Fluid : Density
             {
-                Console.WriteLine("d = p / (gh)");
+                public double d;
 
-                d = p / (g * h);
-                Console.WriteLine("fluid density = " + d);
+                public double p;
+                public double g;
+                public double h;
+
+                public override void MasterDensity()
+                    // d = p / (g * h)
+                {
+                    d = p / (g * h);
+                    Console.WriteLine("density = " + d);
+                }
             }
 
-            public void DensityByArkimedes()
-            // d = F / gV
+            public class ArkimedesDensity : Density
             {
-                Console.WriteLine("d = FL / (gV)");
+                public double d;
 
-                d = FL / (g * V);
-                Console.WriteLine("density = " + d);
+                public double FL;
+                public double g;
+                public double V;
+
+                public override void MasterDensity()
+                    // d = FL / (g * V)
+                {
+                    d = FL / (g * V);
+                    Console.WriteLine("density = " + d);
+                }
             }
         }
 
+
+
+
+
+
+       /* 
         public class Pressure : ThermoPhysics
         {
             public double p;
@@ -285,6 +301,6 @@ namespace Physics
                 A = F / p;
                 Console.WriteLine("defined pressure area = " + A);
             }
-        }
+        }*/
     }
 }

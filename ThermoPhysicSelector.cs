@@ -8,6 +8,67 @@ namespace Physics
 {
     class ThermoPhysicSelector
     {
+
+        public void ThermoSetup()
+        {
+            Console.WriteLine("select thermophysice subject");
+            string ThermoPhysicsSubject = Console.ReadLine();
+
+            if (ThermoPhysicsSubject == "density")
+            {
+                Console.WriteLine("select density type");
+                string DensityType = Console.ReadLine();
+
+                if (DensityType == "general")
+                // d = m / V
+                {
+                    var GeneralDensity = new ThermoPhysics.Density.General();
+
+                    Console.WriteLine("enter mass");
+                    GeneralDensity.m = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter volume");
+                    GeneralDensity.V = Convert.ToDouble(Console.ReadLine());
+
+                    GeneralDensity.MasterDensity();
+                }
+
+                else if (ThermoPhysicsSubject == "fluid")
+                // d = p / (g * h)
+                {
+                    var FluidDensity = new ThermoPhysics.Density.Fluid();
+
+                    Console.WriteLine("enter fluid pressure");
+                    FluidDensity.p = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter gravity");
+                    FluidDensity.g = double.TryParse(Console.ReadLine(), out double g) ? g : 9.82;
+
+                    Console.WriteLine("enter fluid deaph");
+                    FluidDensity.h = Convert.ToDouble(Console.ReadLine());
+
+                    FluidDensity.MasterDensity();
+                }
+
+                else if (ThermoPhysicsSubject == "Arkimedes")
+                // d = FL / (g * V)
+                {
+                    var Arkimedes = new ThermoPhysics.Density.ArkimedesDensity();
+
+                    Console.WriteLine("enter liftforce");
+                    Arkimedes.FL = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("enter gravity");
+                    Arkimedes.g = double.TryParse(Console.ReadLine(), out double g) ? g : 9.82;
+
+                    Console.WriteLine("enter volume");
+                    Arkimedes.V = Convert.ToDouble(Console.ReadLine());
+
+                    Arkimedes.MasterDensity();
+                }
+            }
+        }
+        /*
         public void ThermoSetup()
         {
             Console.WriteLine("select thermophysics type");
@@ -245,6 +306,6 @@ namespace Physics
                     GetArea.p = Convert.ToDouble(Console.ReadLine());
                 }
             }
-        }
+        }*/
     }
 }

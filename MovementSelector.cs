@@ -271,7 +271,7 @@ namespace Physics
                     Time.a = Convert.ToDouble(Console.ReadLine());
                 }
 
-                else if (TimeCalculation == "distance") ;
+                else if (TimeCalculation == "distance")
                 // t = (-u + (u^2 + 2as)^0.5) /a
                 {
                     Console.WriteLine("enter initial velocity");
