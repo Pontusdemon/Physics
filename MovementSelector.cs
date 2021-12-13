@@ -9,7 +9,7 @@ namespace Physics
     class MovementSelector
     {
 
-        public virtual void MovementSetup()
+        public void MovementSetup()
         {
             Console.WriteLine("select movement type");
             string MovementType = Console.ReadLine();
@@ -40,7 +40,8 @@ namespace Physics
                     var Velocity = new Movement.Velocity.Master();
 
                     Console.WriteLine("v = x + at");
-                    Console.WriteLine("initial velocity?");
+
+                    Console.WriteLine("get initial velocity?");
                     string VelocityOption = Console.ReadLine();
 
                     if (VelocityOption == "yes")
@@ -56,6 +57,8 @@ namespace Physics
 
                         Console.WriteLine("enter time");
                         Velocity.t = Convert.ToDouble(Console.ReadLine());
+
+                        Velocity.InitialVelocityByMasterVelocity();
                     }
                     else
                     {
@@ -69,9 +72,9 @@ namespace Physics
 
                         Console.WriteLine("enter time");
                         Velocity.t = Convert.ToDouble(Console.ReadLine());
-                    }
 
-                    Velocity.VelocityMaster();
+                        Velocity.VelocityMaster();
+                    }
                 }
 
                 else if (VelocityType == "timeless")
@@ -98,6 +101,8 @@ namespace Physics
 
                         Console.WriteLine("enter distance");
                         Timeless.s = Convert.ToDouble(Console.ReadLine());
+
+                        Timeless.InitialVelocityByTimelessVelocity();
                     }
                     else
                     {
@@ -111,8 +116,9 @@ namespace Physics
 
                         Console.WriteLine("enter distance");
                         Timeless.s = Convert.ToDouble(Console.ReadLine());
+                    
+                        Timeless.VelocityMaster();
                     }
-                    Timeless.VelocityMaster();
                 }
 
                 else

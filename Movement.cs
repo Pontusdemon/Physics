@@ -17,6 +17,7 @@ namespace Physics
         public abstract class Velocity : Movement
         {
             public abstract void VelocityMaster();
+
             public class Average : Velocity
             {
                 public double v;
@@ -36,7 +37,6 @@ namespace Physics
             {
                 public double v;
 
-
                 public double x;
                 public double a;
                 public double t;
@@ -46,7 +46,13 @@ namespace Physics
                 {
                     v = x + (a * t);
                     Console.WriteLine("velocity = " + v);
+                }
+
+                public void InitialVelocityByMasterVelocity()
                     // x = v - at
+                {
+                    x = v - (a * t);
+                    Console.WriteLine("initial velocity = " + x);
                 }
             }
 
@@ -71,8 +77,13 @@ namespace Physics
                     }
 
                     Console.WriteLine("velocity = " + v);
+                }
 
-                    // extra 
+                public void InitialVelocityByTimelessVelocity()
+                    // x = (v^2 - 2as)^0.5
+                {
+                    x = Math.Sqrt(Math.Pow(v, 2) - (2 * a * s));
+                    Console.WriteLine("initial velocity = " + x);
                 }
             }
 
@@ -138,8 +149,6 @@ namespace Physics
             public void DistanceByAverageVelocity()
                 // s = v * t
             {
-                Console.WriteLine("s = v * t");
-
                 s = v * t;
                 Console.WriteLine("distance = " + s);
             }
@@ -147,8 +156,6 @@ namespace Physics
             public void TimelessDistance()
             // s = (v^2 - x^2) / 2a
             {
-                Console.WriteLine("s = (v^2 - x^2) / 2a");
-
                 s = (Math.Pow(v, 2) - Math.Pow(x, 2)) / (2 * a);
                 Console.WriteLine("distance = " + s);
             }
@@ -156,8 +163,6 @@ namespace Physics
             public void DistanceMaster()
             // s = ut + (at^2)/2
             {
-                Console.WriteLine("s = ut + (at^2)/2");
-
                 s = (u * t) + ((a * Math.Pow(t, 2)) / 2);
                 Console.WriteLine("distance = " + s);
             }
@@ -172,6 +177,13 @@ namespace Physics
             public double x;
             public double a;
             public double u;
+
+            public void TimeByAverageVelocity()
+            // t = s / v
+            {
+                t = s / v;
+                Console.WriteLine("time = " + t);
+            }
         }
     }
                 // OLD
