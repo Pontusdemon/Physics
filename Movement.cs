@@ -36,6 +36,7 @@ namespace Physics
             {
                 public double v;
 
+
                 public double x;
                 public double a;
                 public double t;
@@ -122,6 +123,55 @@ namespace Physics
                 a = (2 * (s - (u * t))) / Math.Pow(t, 2);
                 Console.WriteLine("acceleration = " + a);
             }
+        }
+
+        public class Distance : Movement
+        {
+            public double s;
+
+            public double v;
+            public double t;
+            public double x;
+            public double a;
+            public double u;
+
+            public void DistanceByAverageVelocity()
+                // s = v * t
+            {
+                Console.WriteLine("s = v * t");
+
+                s = v * t;
+                Console.WriteLine("distance = " + s);
+            }
+
+            public void TimelessDistance()
+            // s = (v^2 - x^2) / 2a
+            {
+                Console.WriteLine("s = (v^2 - x^2) / 2a");
+
+                s = (Math.Pow(v, 2) - Math.Pow(x, 2)) / (2 * a);
+                Console.WriteLine("distance = " + s);
+            }
+
+            public void DistanceMaster()
+            // s = ut + (at^2)/2
+            {
+                Console.WriteLine("s = ut + (at^2)/2");
+
+                s = (u * t) + ((a * Math.Pow(t, 2)) / 2);
+                Console.WriteLine("distance = " + s);
+            }
+        }
+
+        public class Time : Movement
+        {
+            public double t;
+
+            public double s;
+            public double v;
+            public double x;
+            public double a;
+            public double u;
         }
     }
                 // OLD
