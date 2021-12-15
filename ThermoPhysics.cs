@@ -52,7 +52,7 @@ namespace Physics
                 }
             }
 
-            public class ArkimedesDensity : Density
+            public class ArkimedesDensity : Density 
             {
                 public double d;
 
@@ -73,7 +73,59 @@ namespace Physics
         {
             public abstract void MasterPressure();
 
+            public class Defined : Pressure
+            {
+                public double p;
 
+                public double F;
+                public double A;
+
+                public override void MasterPressure()
+                    // p = F / A
+                {
+                    p = F / A;
+                    Console.WriteLine("pressure = " + p);
+                }
+            }
+
+            public class Fluid : Pressure
+            {
+                public double p;
+
+                public double x;
+                public double d;
+                public double g;
+                public double h;
+
+                public override void MasterPressure()
+                    // p = x + dgh
+                {
+                    p = x + (d * g * h);
+                    Console.WriteLine("fluid pressure = " + p);
+                }
+
+                public void ExternalPressure()
+                {
+                    x = p - (d * g * h);
+                    Console.WriteLine("external pressure" + x);
+                }
+            }
+
+            public class Gaslaw : Pressure
+            // p = (k * T) / V
+            {
+                public double p;
+
+                public double k;
+                public double T;
+                public double V;
+
+                public override void MasterPressure()
+                {
+                    p = (k * T) / V;
+                    Console.WriteLine("pressure = " + p);
+                }
+            }
         }
 
 
